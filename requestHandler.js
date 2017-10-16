@@ -5,11 +5,21 @@ function start(response){
     console.log('request handler start was called');
     var content = "empty";
 
-    exec("ls -lah", function (error, stdout, stderr){
-        response.writeHead(200, {"content-type":"text/plain"});
+    var body ='<html>'+
+    '<head>'+
+    '<meta http-equiv="content-type" content="text/html; ' +
+    'charset=UTF-8" />'+
+    '</head>'+
+    '<body>'+
+    '<form action="/upload" method="post">'+
+    '<input type="submit" value="submit text" />'+
+    '</form>'+
+    '</body>'+
+    '</html>';
+
+        response.writeHead(200, {"content-type":"text/html"});
         response.write(stdout);
         response.end();
-    });
 }
 
 

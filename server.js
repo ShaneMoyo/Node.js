@@ -10,13 +10,13 @@ function onRequest(request, response){
 
     request.setEncoding("utf8");
 
-    request.addListner("data", function(postDataChunk){
+    request.addListener("data", function(postDataChunk){
         postData += postDataChunk;
         console.log("Received POST data chunk '"+
         postDataChunk + "'.");
     });
 
-    request.addListner("end", function(){
+    request.addListener("end", function(){
         route(handle, pathname, response, postData);
     });
 
